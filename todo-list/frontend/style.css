@@ -1,18 +1,12 @@
 @font-face {
-  font-family: 'Articulata';
+  font-family: 'Inter';
   font-weight: normal;
-  src: url('/ArticulatCF-Regular.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Articulata';
-  font-weight: bold;
-  src: url('/ArticulatCF-DemiBold.woff2') format('woff2');
+  src: url('/Inter-Regular.woff2') format('woff2');
 }
 
 * {
   box-sizing: border-box;
-  font-family: Articulata, Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
 }
 
 :root {
