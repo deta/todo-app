@@ -1,0 +1,17 @@
+# Spacefile Docs: https://alpha.deta.space/docs/en/reference/spacefile 
+v: 0
+micros:
+  - name: frontend
+    src: frontend
+    engine: static
+    serve: dist
+    primary: true
+    commands:
+      - npm run build
+
+  - name: backend
+    src: backend
+    engine: nodejs16
+    run: "node index.js"
+    path: /api
+

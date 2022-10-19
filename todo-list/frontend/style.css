@@ -1,0 +1,141 @@
+@font-face {
+  font-family: 'Articulata';
+  font-weight: normal;
+  src: url('/ArticulatCF-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Articulata';
+  font-weight: bold;
+  src: url('/ArticulatCF-DemiBold.woff2') format('woff2');
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Articulata, Inter, Avenir, Helvetica, Arial, sans-serif;
+}
+
+:root {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #f7f5f2;
+  color-scheme: dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  padding-top: 4em;
+  padding-bottom: 8em;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: linear-gradient(90deg,#1c1b1b 30px,#0000 1%) 50%,linear-gradient(#1c1b1b 30px,#0000 1%) 50%,#ffffff26;
+  background-size: 32px 32px;
+}
+
+.banner {
+  user-select: none;
+  pointer-events: none;
+  transform: scale(0.75);
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 16px;
+  max-width: 600px;
+}
+
+#input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  line-height: 2em;
+  padding: .5rem 1rem;
+  font-weight: normal;
+  border-radius: .75rem;
+  background-color: transparent;
+}
+
+#input:focus {
+  outline: none;
+}
+
+.card {
+  border: 0 solid;
+  position: relative;
+  border-radius: .375rem;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  transition-duration: .15s;
+  border-width: 4px;
+  border-color: #49464580;
+  background-color: rgb(28 27 27);
+}
+
+.description {
+  color: #494645;
+  line-height: 1em;
+  font-size: 0.75em;
+  text-align: center;
+}
+
+.todo {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem 1rem;
+  border-top: 4px solid;
+  border-color: #49464580;
+}
+
+.text {
+  text-overflow: ellipsis;
+  overflow: hidden; 
+  width: 100%;
+  font-size: 1em;
+  line-height: 2em;
+  padding-right: 0.5em;
+}
+
+.text.done {
+  text-decoration: line-through;
+  color: #727272;
+}
+
+.action {
+  cursor: pointer;
+  width: 2em;
+  height: 2em;
+  filter: invert(20%);
+  transform: scale(0.75);
+  transition: filter 0.15s ease, transform 0.2s ease;
+}
+
+.action:first-child {
+  margin-left: -0.5em;
+  margin-right: 0.5em;
+}
+
+.action:last-child {
+  margin-left: auto;
+}
+
+.action.active {
+  transform: scale(0.9);
+  filter: invert(50%);
+}
+
+.action:hover, .action:focus {
+  outline: none;
+  filter: invert(75%);
+}
+
