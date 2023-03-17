@@ -8,10 +8,12 @@ micros:
     primary: true
     commands:
       - npm run build
+    dev: npm run dev -- --port $PORT   
 
   - name: backend
     src: backend
     engine: nodejs16
     run: "node index.js"
-    path: /api
+    path: api
+    dev: "node index.js"
 

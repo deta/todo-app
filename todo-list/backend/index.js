@@ -86,7 +86,9 @@ app.delete('/:key', async (req, res) => {
     }
 })
 
+const port = process.env.PORT || 8080
+
 // Start server
-app.listen(8080, () => {
-    console.log(`ToDo-Backend started in "${process.env.NODE_ENV || 'development'}" mode on port 8080! 🥳`);
+app.listen(port, () => {
+    console.log(`ToDo-Backend started in "${process.env.NODE_ENV || 'development'}" mode on port ${port}! 🥳`);
 });
