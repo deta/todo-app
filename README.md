@@ -1,6 +1,6 @@
 ![Preview](preview.png)
 
-Simple To Do list application, made with Node.js, Express specialy for launching it on [Deta Space](https://deta.space/)!
+An example full-stack app that runs on [Deta Space](https://deta.space/)!
 
 The main components of the project are:
 
@@ -36,6 +36,14 @@ space dev
 ```
 
 This will start both the frontend and backend Micros, connect them to your projects development data and emulate the Space routing.
+
+Refer to our [docs](https://deta.space/docs) for more information on Space development.
+
+## Run it on Space
+
+```sh
+space push
+```
 
 ## License
 
