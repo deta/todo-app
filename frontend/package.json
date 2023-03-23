@@ -7,7 +7,7 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "author": "Kirill Reunov",
+  "author": "Deta",
   "license": "MIT",
   "devDependencies": {
     "vite": "^3.1.0"

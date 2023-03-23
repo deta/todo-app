@@ -7,7 +7,7 @@
     "start": "node server.js",
     "dev": "npx nodemon server.js"
   },
-  "author": "Kirill Reunov",
+  "author": "Deta",
   "license": "MIT",
   "dependencies": {
     "deta": "^1.1.0",

@@ -1,19 +1,18 @@
-# Spacefile Docs: https://alpha.deta.space/docs/en/reference/spacefile 
+# Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
 v: 0
 micros:
   - name: frontend
     src: frontend
     engine: static
-    serve: dist
     primary: true
     commands:
       - npm run build
-    dev: npm run dev -- --port $PORT   
+    serve: dist
+    dev: npm run dev -- --port $PORT
 
   - name: backend
     src: backend
     engine: nodejs16
-    run: "node index.js"
+    run: node index.js
     path: api
-    dev: "node index.js"
-
+    dev: node index.js

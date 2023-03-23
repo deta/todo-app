@@ -1,0 +1,8 @@
+{
+    "scripts": {
+        "dev": "space dev",
+        "install:all": "npm run install:frontend && npm run install:backend",
+        "install:frontend": "cd frontend && npm install",
+        "install:backend": "cd backend && npm install"
+    }
+}

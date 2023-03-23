@@ -1,17 +1,7 @@
-import * as dotenv from 'dotenv';
 import { Deta } from 'deta';
 import Express from 'express';
 
-// Load ENV variables if running locally
-if (!process.env.DETA_SPACE_APP) {
-    dotenv.config();
-
-    if (!process.env.DETA_PROJECT_KEY) {
-        throw new Error('Cant start server without DETA_PROJECT_KEY! Create .env file and add DETA_PROJECT_KEY to it.')
-    }
-}
-
-const deta = Deta(process.env.DETA_PROJECT_KEY);
+const deta = Deta();
 const base = deta.Base('todos');
 const app = Express();
 app.use(Express.json());
