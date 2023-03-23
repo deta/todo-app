@@ -26,7 +26,7 @@ space new
 2. Install frontend and backend dependencies together:
 
 ```bash
-yarn install
+npm run install:all
 ```
 
 3. Start app in development mode:

@@ -1,7 +1,6 @@
 import { Deta } from 'deta';
 import Express from 'express';
 
-
 const deta = Deta();
 const base = deta.Base('todos');
 const app = Express();
