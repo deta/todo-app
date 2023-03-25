@@ -9,10 +9,14 @@ micros:
       - npm run build
     serve: dist
     dev: npm run dev -- --port $PORT
-
   - name: backend
     src: backend
     engine: nodejs16
     run: node index.js
     path: api
-    dev: node index.js
+    dev: npm run dev
+    actions:
+      - id: "cleanup"
+        name: "Delete done tasks"
+        trigger: "schedule"
+        default_interval: "1 minute"

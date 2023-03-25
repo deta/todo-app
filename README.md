@@ -37,6 +37,12 @@ space dev
 
 This will start both the frontend and backend Micros, connect them to your projects development data and emulate the Space routing.
 
+The app contains a Scheduled Action (`cleanup`) that runs every 1 minute and deletes todos that have the property `done: true`. Scheduled Actions are not available locally, but you can emulate them with the `space dev trigger` command:
+
+```bash
+space dev trigger cleanup
+``` 
+
 Refer to our [docs](https://deta.space/docs) for more information on Space development.
 
 ## Run it on Space
