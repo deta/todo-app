@@ -1,5 +1,9 @@
 import './style.css';
+import check from './public/check.svg';
+import trashbin from './public/trashbin.svg';
+import { Base } from 'deta';
 
+const db = Base('todos');
 let todos = [];
 
 const todosList = document.getElementById('todos');
@@ -9,10 +13,9 @@ const inputElement = document.getElementById('input');
  * Get list of ToDos
  */
 async function getTodos() {
-  const request = await fetch('/api');
-  const data = await request.json();
-  
-  todos = data.todos;
+  const td = await db.fetch();
+  td.items.sort((a, b) => a.createdAt - b.createdAt);
+  todos = td.items;
   renderTodos();
 }
 
@@ -26,18 +29,14 @@ async function addTodo(text) {
   if (trimmedText === '') return inputElement.focus();
   inputElement.value = '';
 
-  const response = await fetch('/api', {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ text: trimmedText })
+  const todo = await db.put({
+    text: trimmedText,
+    createdAt: Date.now(),
+    done: false
   });
 
-  const data = await response.json();
 
-  todos.push(data.todo);
+  todos.push(todo);
   renderTodos();
 }
 
@@ -46,24 +45,21 @@ async function addTodo(text) {
  * @param {string} key Key of the ToDo 
  */
 async function toggleTodo(key) {
-  todos = todos.map((todo) => {
-    if (todo.key === key) todo.done = !todo.done;
-    return todo;
-  });
+  const todo = todos.find((todo) => todo.key === key);
+  const updated = await db.put({...todo, done: !todo.done});
+  todos = todos.map((todo) => todo.key === key ? updated : todo);
   renderTodos();
 
-  await fetch(`/api/${key}`, { method: 'PUT' });
 }
 
 /**
  * Remove ToDo from the list
  * @param {string} key Key of the ToDo 
  */
-async function removeTodo(key) {  
+async function removeTodo(key) {
+  await db.delete(key);
   todos = todos.filter((todo) => todo.key !== key);
   renderTodos();
-
-  await fetch(`/api/${key}`, { method: 'DELETE' });
 }
 
 /**
@@ -84,14 +80,14 @@ function renderTodos() {
 
     const deleteElement = document.createElement('img');
     deleteElement.className = 'action';
-    deleteElement.src = '/trashbin.svg';
+    deleteElement.src = trashbin;
     deleteElement.tabIndex = 0;
     deleteElement.addEventListener('click', () => removeTodo(key));
     deleteElement.addEventListener('keyup', (event) => event.key === 'Enter' && removeTodo(key));
   
     const toggleElement = document.createElement('img');
     toggleElement.className = `action ${todo.done ? 'active' : ''}`;
-    toggleElement.src = '/check.svg';
+    toggleElement.src =check;
     toggleElement.tabIndex = 0;
     toggleElement.addEventListener('click', () => toggleTodo(key));
     toggleElement.addEventListener('keyup', (event) => event.key === 'Enter' && toggleTodo(key));

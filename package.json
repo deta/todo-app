@@ -1,8 +1,18 @@
 {
-    "scripts": {
-        "dev": "space dev",
-        "install:all": "npm run install:frontend && npm run install:backend",
-        "install:frontend": "cd frontend && npm install",
-        "install:backend": "cd backend && npm install"
-    }
+  "name": "todo-frontend",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "author": "Deta",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^3.1.0"
+  },
+  "dependencies": {
+    "deta": "^2.0.0-rc.1"
+  }
 }
