@@ -1,11 +1,9 @@
 import './style.css';
 import check from './public/check.svg';
 import trashbin from './public/trashbin.svg';
-import { Deta } from 'deta';
+import { Base } from 'deta';
 
-
-const deta = Deta();
-const db = deta.Base('todos');
+const db = Base('todos');
 let todos = [];
 
 const todosList = document.getElementById('todos');
