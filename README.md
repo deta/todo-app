@@ -4,19 +4,14 @@ An example full-stack app that runs on [Deta Space](https://deta.space/)!
 
 The main components of the project are:
 
-* `/frontend` - Client side app, made with vanilla JavaScript and bundled using Vite
-
-* `/backend` - Simple CRUD Express server that stores data using **Deta Base**
-
+* `/src` - The JavaScript app which talks directly to Base.
 * `Spacefile` - configuration for deploying this app to **Deta Space** 💫
 
 
 ## Development
 
 1. Install [Node.js](https://nodejs.org/en/). Preferably LTS version.
-
-2. Install and setup [Space CLI](https://deta.space/docs/en/basics/cli)
-
+2. Install and setup [Space CLI](https://deta.space/docs/en/build/reference/cli)
 3. Create a new Space project:
 
 ```bash
@@ -26,7 +21,7 @@ space new
 2. Install frontend and backend dependencies together:
 
 ```bash
-npm run install:all
+npm install
 ```
 
 3. Start app in development mode:
@@ -35,13 +30,8 @@ npm run install:all
 space dev
 ```
 
-This will start both the frontend and backend Micros, connect them to your projects development data and emulate the Space routing.
+This will start a dev server to test your app locally. It automatically connects your app with Base and Drive
 
-The app contains a Scheduled Action (`cleanup`) that runs every 1 minute and deletes todos that have the property `done: true`. Scheduled Actions are not available locally, but you can emulate them with the `space dev trigger` command:
-
-```bash
-space dev trigger cleanup
-``` 
 
 Refer to our [docs](https://deta.space/docs) for more information on Space development.
 
